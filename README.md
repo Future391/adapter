@@ -4,6 +4,7 @@
 ​       由于客户方的大数据集群环境复杂多变，适配工作占用太多人力及时间，该工具支持在自动化部署服务前检测不同平台组件的版本等信息，通过运行HDFS、Hive、Spark等测试用例来验证集群环境是否可用，提升运维部署效率
 
 ## 2.Adapter 目录结构
+```
 adapter
 ├── bin	#启动目录存放导数/环境监测/启动脚本/初始化等脚本，所有脚本均可单独执行
 │   ├── check_arango.sh	#检查arango结果数据脚本
@@ -54,7 +55,8 @@ adapter
 │           └── hive2hive.json
 ├── lib							#jar目录
 │   └── etl-kgp-loader-*.jar	
-└── logs							#etl_flow_check.sh脚本启动的日志目录, 启动一次会生成一个log文件，可按最新文件查看
+└── logs            #etl_flow_check.sh脚本启动的日志目录, 启动一次会生成一个log文件，可按最新文件查看
+```
 
 ## 3.adapter.properties详细配置
 
