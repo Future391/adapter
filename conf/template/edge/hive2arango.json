@@ -1,0 +1,111 @@
+{
+    "gapConfig": {
+        "errorMode": -1,
+        "errorStoreEnabled": false,
+        "errorStoreRowsLimit": 0,
+        "fieldMapping": {},
+        "inboundTaskId": "benchmark_test-GDB",
+        "operationField": "_operation",
+        "schema": {
+            "fields": {
+                "bnd_crd": {
+                    "id": -15004,
+                    "isMain": "N",
+                    "name": "bnd_crd",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "from_key": {
+                    "id": -15001,
+                    "isMain": "N",
+                    "name": "from_key",
+                    "required": "Y",
+                    "type": "STRING",
+                    "fieldSign": "UNIQUE_FROM_KEY"
+                },
+                "label": {
+                    "id": -15002,
+                    "isMain": "N",
+                    "name": "label",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "mgm_chn": {
+                    "id": -15001,
+                    "isMain": "N",
+                    "name": "mgm_chn",
+                    "required": "Y",
+                    "type": "STRING"
+                },
+                "object_key": {
+                    "id": -15003,
+                    "isMain": "N",
+                    "name": "object_key",
+                    "required": "N",
+                    "type": "STRING",
+                    "fieldSign": "UNIQUE_KEY"
+                },
+                "reg_sts": {
+                    "id": -15006,
+                    "isMain": "N",
+                    "name": "reg_sts",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "reg_tim": {
+                    "id": -15004,
+                    "isMain": "N",
+                    "name": "reg_tim",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "to_key": {
+                    "id": -15006,
+                    "isMain": "N",
+                    "name": "to_key",
+                    "required": "N",
+                    "type": "STRING",
+                    "fieldSign": "UNIQUE_TO_KEY"
+                },
+                "update_date": {
+                    "id": -15002,
+                    "isMain": "N",
+                    "name": "update_date",
+                    "required": "N",
+                    "type": "STRING"
+                }
+            },
+            "graphId": -11100,
+            "id": -15000,
+            "name": "com_new_vertex_tv_user_shanghai_1",
+            "type": "edge",
+            "useGdb": "Y",
+            "useHBase": "N",
+            "useSearch": "Y"
+        },
+        "taskInstanceId": "benchmark_test"
+    },
+    "sinks": [
+        {
+            "operation": "OVERWRITE",
+            "storeConfig": {
+                "collection": "${sink.edge.arango.collection}",
+                "collectionType": "${sink.edge.arango.collectionType}",
+                "database": "${sink.arango.database}",
+                "maxConnections": 5,
+                "numberOfShards": 9,
+                "password": "${sink.arango.password}",
+                "replicationFactor": 1,
+                "url": "${sink.arango.url}",
+                "user": "${sink.arango.user}"
+            },
+            "storeType": "GDB"
+        }
+    ],
+    "source": {
+        "hiveSQL": "select * from ${source.hive.database}.${source.edge.hive.table}"
+    },
+    "sparkConfig": {
+        "numPartitions": 24
+    }
+}

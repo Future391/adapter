@@ -1,0 +1,241 @@
+{
+    "gapConfig": {
+        "errorMode": -1,
+        "errorStoreEnabled": false,
+        "errorStoreRowsLimit": 0,
+        "fieldMapping": {},
+        "inboundTaskId": "benchmark_test-GDB",
+        "operationField": "_operation",
+        "schema": {
+            "fields": {
+                "amount": {
+                    "id": -15004,
+                    "isMain": "N",
+                    "name": "amount",
+                    "required": "N",
+                    "type": "double"
+                },
+                "amount_usage_rate": {
+                    "id": -15002,
+                    "isMain": "N",
+                    "name": "amount_usage_rate",
+                    "required": "N",
+                    "type": "double"
+                },
+                "cir_act_cnt": {
+                    "id": -15001,
+                    "isMain": "N",
+                    "name": "cir_act_cnt",
+                    "required": "Y",
+                    "type": "LONG"
+                },
+                "clt_blk_cod": {
+                    "id": -15006,
+                    "isMain": "N",
+                    "name": "clt_blk_cod",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "clt_bth_dte": {
+                    "id": -15004,
+                    "isMain": "N",
+                    "name": "clt_bth_dte",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "clt_cir_flg": {
+                    "id": -15002,
+                    "isMain": "N",
+                    "name": "clt_cir_flg",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "clt_cop_nam": {
+                    "id": -15001,
+                    "isMain": "N",
+                    "name": "clt_cop_nam",
+                    "required": "Y",
+                    "type": "STRING"
+                },
+                "clt_ctf_nbr": {
+                    "id": -15001,
+                    "isMain": "N",
+                    "name": "clt_ctf_nbr",
+                    "required": "Y",
+                    "type": "STRING"
+                },
+                "clt_edu": {
+                    "id": -15006,
+                    "isMain": "N",
+                    "name": "clt_edu",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "clt_eml_adr1": {
+                    "id": -15004,
+                    "isMain": "N",
+                    "name": "clt_eml_adr1",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "clt_eml_adr2": {
+                    "id": -15002,
+                    "isMain": "N",
+                    "name": "clt_eml_adr2",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "clt_mob_tel2": {
+                    "id": -15001,
+                    "isMain": "N",
+                    "name": "clt_mob_tel2",
+                    "required": "Y",
+                    "type": "STRING"
+                },
+                "clt_nam_tel1": {
+                    "id": -15006,
+                    "isMain": "N",
+                    "name": "clt_nam_tel1",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "clt_nam_tel2": {
+                    "id": -15004,
+                    "isMain": "N",
+                    "name": "clt_nam_tel2",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "clt_nbr": {
+                    "id": -15006,
+                    "isMain": "N",
+                    "name": "clt_nbr",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "clt_ser_cod1": {
+                    "id": -15002,
+                    "isMain": "N",
+                    "name": "clt_ser_cod1",
+                    "required": "N",
+                    "type": "LONG"
+                },
+                "clt_sex": {
+                    "id": -15001,
+                    "isMain": "N",
+                    "name": "clt_sex",
+                    "required": "Y",
+                    "type": "STRING"
+                },
+                "clt_sht_nam": {
+                    "id": -15006,
+                    "isMain": "N",
+                    "name": "clt_sht_nam",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "clt_str_dte": {
+                    "id": -15004,
+                    "isMain": "N",
+                    "name": "clt_str_dte",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "cmb_flg": {
+                    "id": -15002,
+                    "isMain": "N",
+                    "name": "cmb_flg",
+                    "required": "N",
+                    "type": "STRING"
+                },
+                "object_key": {
+                    "id": -15003,
+                    "isMain": "N",
+                    "name": "object_key",
+                    "required": "N",
+                    "type": "STRING"
+                }
+            },
+            "graphId": -11100,
+            "id": -15000,
+            "name": "com_new_vertex_tv_user_shanghai_1",
+            "type": "vertex",
+            "useGdb": "Y",
+            "useHBase": "N",
+            "useSearch": "Y"
+        },
+        "taskInstanceId": "benchmark_test"
+    },
+    "sinks": [
+        {
+            "operation": "OVERWRITE",
+            "storeConfig": {
+                "collection": "sink_vertex",
+                "collectionType": "vertex",
+                "database": "test_etl",
+                "maxConnections": 5,
+                "numberOfShards": 9,
+                "password": "dmp_manager@2019",
+                "replicationFactor": 1,
+                "url": "192.168.1.36:8529",
+                "user": "dmp_manager"
+            },
+            "storeType": "GDB"
+        },
+        {
+            "operation": "OVERWRITE",
+            "storeConfig": {
+                "index": "sink_vertex",
+                "mapping": {
+                    "_all": {
+                        "enabled": false
+                    },
+                    "date_detection": false,
+                    "dynamic_date_formats": [
+                        "yyyy-MM-dd HH:mm:ss",
+                        "yyyy-MM-dd"
+                    ]
+                },
+                "setting": {
+                    "analysis": {
+                        "analyzer": {
+                            "ik": {
+                                "tokenizer": "ik_max_word",
+                                "type": "custom"
+                            }
+                        },
+                        "normalizer": {
+                            "my_normalizer": {
+                                "char_filter": [],
+                                "filter": [
+                                    "lowercase",
+                                    "asciifolding"
+                                ],
+                                "type": "custom"
+                            }
+                        }
+                    },
+                    "index.number_of_replicas": 1,
+                    "index.number_of_shards": 5
+                },
+                "type": "vertex",
+                "url": "192.168.1.123:19200"
+            },
+            "storeType": "ES"
+        },
+        {
+            "operation": "OVERWRITE",
+            "storeConfig": {
+                "database": "test_etl",
+                "table": "sink_vertex"
+            },
+            "storeType": "HIVE"
+        }
+    ],
+    "source": {
+        "hiveSQL": "select * from test_etl.t_vertex"
+    },
+    "sparkConfig": {
+        "numPartitions": 24
+    }
+}

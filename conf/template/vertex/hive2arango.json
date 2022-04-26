@@ -1,0 +1,190 @@
+{
+	"source": {
+		"hiveSQL": "select * from ${source.hive.database}.${source.vertex.hive.table}"
+	},
+	"sinks": [{
+		"storeType": "GDB",
+		"operation": "OVERWRITE",
+		"storeConfig": {
+			"database": "${sink.arango.database}",
+			"collection": "${sink.vertex.arango.collection}",
+			"collectionType": "${sink.vertex.arango.collectionType}",
+			"maxConnections": 5,
+			"numberOfShards": 9,
+			"password": "${sink.arango.password}",
+			"replicationFactor": 1,
+			"url": "${sink.arango.url}",
+			"user": "${sink.arango.user}"
+		}
+	}],
+	"gapConfig": {
+		"errorMode": -1,
+		"errorStoreEnabled": false,
+		"errorStoreRowsLimit": 0,
+		"operationField": "_operation",
+		"fieldMapping": {},
+		"inboundTaskId": "benchmark_test-GDB",
+		"schema": {
+			"fields": {
+				"object_key": {
+					"id": -15003,
+					"isMain": "N",
+					"name": "object_key",
+					"required": "N",
+					"type": "STRING"
+				},
+				"clt_ctf_nbr": {
+					"id": -15001,
+					"isMain": "N",
+					"name": "clt_ctf_nbr",
+					"required": "Y",
+					"type": "STRING"
+				},
+				"clt_nbr": {
+					"id": -15006,
+					"isMain": "N",
+					"name": "clt_nbr",
+					"required": "N",
+					"type": "STRING"
+				},
+				"amount": {
+					"id": -15004,
+					"isMain": "N",
+					"name": "amount",
+					"required": "N",
+					"type": "double"
+				},
+				"amount_usage_rate": {
+					"id": -15002,
+					"isMain": "N",
+					"name": "amount_usage_rate",
+					"required": "N",
+					"type": "double"
+				},
+				"cir_act_cnt": {
+					"id": -15001,
+					"isMain": "N",
+					"name": "cir_act_cnt",
+					"required": "Y",
+					"type": "LONG"
+				},
+				"clt_blk_cod": {
+					"id": -15006,
+					"isMain": "N",
+					"name": "clt_blk_cod",
+					"required": "N",
+					"type": "STRING"
+				},
+				"clt_bth_dte": {
+					"id": -15004,
+					"isMain": "N",
+					"name": "clt_bth_dte",
+					"required": "N",
+					"type": "STRING"
+				},
+				"clt_cir_flg": {
+					"id": -15002,
+					"isMain": "N",
+					"name": "clt_cir_flg",
+					"required": "N",
+					"type": "STRING"
+				},
+				"clt_cop_nam": {
+					"id": -15001,
+					"isMain": "N",
+					"name": "clt_cop_nam",
+					"required": "Y",
+					"type": "STRING"
+				},
+				"clt_edu": {
+					"id": -15006,
+					"isMain": "N",
+					"name": "clt_edu",
+					"required": "N",
+					"type": "STRING"
+				},
+				"clt_eml_adr1": {
+					"id": -15004,
+					"isMain": "N",
+					"name": "clt_eml_adr1",
+					"required": "N",
+					"type": "STRING"
+				},
+				"clt_eml_adr2": {
+					"id": -15002,
+					"isMain": "N",
+					"name": "clt_eml_adr2",
+					"required": "N",
+					"type": "STRING"
+				},
+				"clt_mob_tel2": {
+					"id": -15001,
+					"isMain": "N",
+					"name": "clt_mob_tel2",
+					"required": "Y",
+					"type": "STRING"
+				},
+				"clt_nam_tel1": {
+					"id": -15006,
+					"isMain": "N",
+					"name": "clt_nam_tel1",
+					"required": "N",
+					"type": "STRING"
+				},
+				"clt_nam_tel2": {
+					"id": -15004,
+					"isMain": "N",
+					"name": "clt_nam_tel2",
+					"required": "N",
+					"type": "STRING"
+				},
+				"clt_ser_cod1": {
+					"id": -15002,
+					"isMain": "N",
+					"name": "clt_ser_cod1",
+					"required": "N",
+					"type": "LONG"
+				},
+				"clt_sex": {
+					"id": -15001,
+					"isMain": "N",
+					"name": "clt_sex",
+					"required": "Y",
+					"type": "STRING"
+				},
+				"clt_sht_nam": {
+					"id": -15006,
+					"isMain": "N",
+					"name": "clt_sht_nam",
+					"required": "N",
+					"type": "STRING"
+				},
+				"clt_str_dte": {
+					"id": -15004,
+					"isMain": "N",
+					"name": "clt_str_dte",
+					"required": "N",
+					"type": "STRING"
+				},
+				"cmb_flg": {
+					"id": -15002,
+					"isMain": "N",
+					"name": "cmb_flg",
+					"required": "N",
+					"type": "STRING"
+				}
+			},
+			"graphId": -11100,
+			"id": -15000,
+			"name": "com_new_vertex_tv_user_shanghai_1",
+			"type": "vertex",
+			"useGdb": "Y",
+			"useHBase": "N",
+			"useSearch": "Y"
+		},
+		"taskInstanceId": "benchmark_test"
+	},
+	"sparkConfig": {
+		"numPartitions": 24
+	}
+}
